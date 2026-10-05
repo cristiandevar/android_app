@@ -33,6 +33,11 @@
     <string name="boton_guardar">Guardar</string>
     <string name="fab_nuevo_producto">Nuevo producto</string>
 
+    <string name="hint_codigo_barra">Código de barra (opcional)</string>
+    <string name="boton_escanear_codigo">Escanear</string>
+    <string name="mensaje_error_escaneo">No se pudo escanear el código</string>
+    <string name="mensaje_codigo_barra_repetido">Ya hay otro producto con ese código de barra</string>
+
     <string name="titulo_actualizacion_masiva">Actualización masiva de precios</string>
     <string name="label_campo_a_modificar">Campo a modificar</string>
     <string name="label_tipo_operacion">Tipo de operación</string>
@@ -50,6 +55,7 @@
     <string name="menu_marcas">Marcas</string>
     <string name="menu_proveedores">Proveedores</string>
     <string name="menu_categorias">Categorías</string>
+    <string name="menu_formas_de_pago">Formas de pago</string>
 
     <string name="hint_buscar_por_nombre">Buscar por nombre</string>
     <string name="fab_agregar">Agregar</string>
@@ -62,6 +68,8 @@
     <string name="titulo_editar_categoria">Editar categoría</string>
     <string name="titulo_nuevo_proveedor">Nuevo proveedor</string>
     <string name="titulo_editar_proveedor">Editar proveedor</string>
+    <string name="titulo_nueva_forma_de_pago">Nueva forma de pago</string>
+    <string name="titulo_editar_forma_de_pago">Editar forma de pago</string>
 
     <string name="label_descripcion">Descripción</string>
     <string name="label_contacto">Contacto</string>

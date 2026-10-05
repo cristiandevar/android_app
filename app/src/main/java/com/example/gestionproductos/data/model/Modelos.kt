@@ -26,6 +26,14 @@ data class Proveedor(
     val activo: Boolean = true
 )
 
+// NUEVO (Fase 0b): mismo patrón simple que Marca. Se usa en Ventas
+// (Fase 2) para registrar con qué se cobró.
+data class FormaDePago(
+    val id: Int,
+    val nombre: String,
+    val activo: Boolean = true
+)
+
 data class Producto(
     val id: Int = 0,
     val nombre: String,
@@ -40,6 +48,9 @@ data class Producto(
     val porcentaje_ganancia: String,
     val precio_venta: String? = null,
     val stock: Int,
+    // NUEVO (Fase 0c): código de barra, opcional. null cuando el producto
+    // no tiene uno cargado (ver Fase 2, se usa para escanear en Venta).
+    val codigo_barra: String? = null,
     val activo: Boolean = true
 )
 

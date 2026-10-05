@@ -23,7 +23,8 @@ class MainActivity : AppCompatActivity() {
     // sin navegación propia) y los hijos que cada uno despliega/oculta.
     private val gruposDelMenu = mapOf(
         R.id.menuGrupoAdministracion to listOf(
-            R.id.menuProductos, R.id.menuProveedores, R.id.menuMarcas, R.id.menuCategorias
+            R.id.menuProductos, R.id.menuProveedores, R.id.menuMarcas, R.id.menuCategorias,
+            R.id.menuFormasDePago
         ),
         R.id.menuGrupoOperaciones to listOf(
             R.id.menuOrdenes, R.id.menuGenerarOrden, R.id.menuVentas,
@@ -35,9 +36,12 @@ class MainActivity : AppCompatActivity() {
     )
 
     // De esos hijos, los que además solo debe ver un Administrador (misma
-    // restricción que ya existía antes de agrupar el menú).
+    // restricción que ya existía antes de agrupar el menú). Formas de
+    // pago (NUEVO, Fase 0b) sigue el mismo criterio que Marca/Categoría/
+    // Proveedor: es un dato maestro que solo administra el Administrador.
     private val idsSoloAdministrador = setOf(
-        R.id.menuProveedores, R.id.menuMarcas, R.id.menuCategorias, R.id.menuActualizacionMasiva
+        R.id.menuProveedores, R.id.menuMarcas, R.id.menuCategorias, R.id.menuActualizacionMasiva,
+        R.id.menuFormasDePago
     )
 
     // Estado de expandido/colapsado de cada grupo; arrancan todos
@@ -174,6 +178,11 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.menuProveedores -> {
                     navController.navigate(R.id.proveedorListFragment)
+                    binding.drawerLayout.closeDrawers()
+                    true
+                }
+                R.id.menuFormasDePago -> {
+                    navController.navigate(R.id.formaDePagoListFragment)
                     binding.drawerLayout.closeDrawers()
                     true
                 }

@@ -1,6 +1,7 @@
 package com.example.gestionproductos.data.repository
 
 import com.example.gestionproductos.data.model.Categoria
+import com.example.gestionproductos.data.model.FormaDePago
 import com.example.gestionproductos.data.model.Marca
 import com.example.gestionproductos.data.model.Proveedor
 import com.example.gestionproductos.data.network.ApiService
@@ -8,10 +9,10 @@ import com.google.gson.JsonParser
 import retrofit2.Response
 
 /**
- * CRUD de los catálogos maestros (Categoría, Marca, Proveedor). Las
- * pantallas que lo usan están restringidas a Administrador (MainActivity
- * oculta esos ítems del menú para un Operador); el backend además
- * devuelve 403 si alguien llegara igual con otro rol.
+ * CRUD de los catálogos maestros (Categoría, Marca, Proveedor, Forma de
+ * pago). Las pantallas que lo usan están restringidas a Administrador
+ * (MainActivity oculta esos ítems del menú para un Operador); el backend
+ * además devuelve 403 si alguien llegara igual con otro rol.
  */
 class CatalogoRepository(private val api: ApiService) {
 
@@ -56,6 +57,20 @@ class CatalogoRepository(private val api: ApiService) {
     }
 
     suspend fun eliminarProveedor(id: Int): Result<Unit> = envolverSinCuerpo { api.eliminarProveedor(id) }
+
+    // --- Formas de pago (NUEVO, Fase 0b) ---
+    suspend fun listarFormasDePago(busqueda: String? = null): Result<List<FormaDePago>> =
+        envolver { api.listarFormasDePago(busqueda) }
+
+    suspend fun obtenerFormaDePago(id: Int): Result<FormaDePago> =
+        envolver { api.obtenerFormaDePago(id) }
+
+    suspend fun guardarFormaDePago(formaDePago: FormaDePago): Result<FormaDePago> = envolver {
+        if (formaDePago.id == 0) api.crearFormaDePago(formaDePago)
+        else api.actualizarFormaDePago(formaDePago.id, formaDePago)
+    }
+
+    suspend fun eliminarFormaDePago(id: Int): Result<Unit> = envolverSinCuerpo { api.eliminarFormaDePago(id) }
 
     // --- Helpers comunes ---
 

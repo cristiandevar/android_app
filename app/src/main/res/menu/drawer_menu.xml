@@ -29,11 +29,11 @@
          grupo; solo el título del grupo conserva su ícono, para quedar
          alineado con Inicio y Cerrar sesión. -->
 
-    <!-- Administración: datos maestros. Proveedores/Marcas/Categorías
-         además se ocultan si el usuario logueado no es Administrador;
-         Productos queda visible para cualquiera. El backend igual
-         rechaza la acción aunque alguien forzara la pantalla, así que la
-         seguridad real no depende de este menú. -->
+    <!-- Administración: datos maestros. Proveedores/Marcas/Categorías/
+         Formas de pago además se ocultan si el usuario logueado no es
+         Administrador; Productos queda visible para cualquiera. El
+         backend igual rechaza la acción aunque alguien forzara la
+         pantalla, así que la seguridad real no depende de este menú. -->
     <item
         android:id="@+id/menuGrupoAdministracion"
         android:title="@string/menu_administracion"
@@ -55,6 +55,10 @@
     <item
         android:id="@+id/menuCategorias"
         android:title="@string/menu_categorias" />
+
+    <item
+        android:id="@+id/menuFormasDePago"
+        android:title="@string/menu_formas_de_pago" />
 
     <!-- Operaciones: Órdenes/Generar Orden/Ventas/Registrar Venta son
          entradas nuevas de menú sin funcionalidad todavía (llevan a una

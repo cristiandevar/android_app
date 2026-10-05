@@ -101,6 +101,29 @@
             android:defaultValue="-1" />
     </fragment>
 
+    <!-- Formas de pago: mismo patrón que Marca (un solo campo "nombre").
+         Se usa en Ventas (Fase 2) para registrar con qué se cobró. -->
+    <fragment
+        android:id="@+id/formaDePagoListFragment"
+        android:name="com.example.gestionproductos.ui.formasdepago.FormaDePagoListFragment"
+        android:label="@string/menu_formas_de_pago"
+        tools:layout="@layout/fragment_catalogo_lista">
+        <action
+            android:id="@+id/accionAFormaDePagoForm"
+            app:destination="@id/formaDePagoFormFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/formaDePagoFormFragment"
+        android:name="com.example.gestionproductos.ui.formasdepago.FormaDePagoFormFragment"
+        android:label="@string/titulo_nueva_forma_de_pago"
+        tools:layout="@layout/fragment_formadepago_form">
+        <argument
+            android:name="formaDePagoId"
+            app:argType="integer"
+            android:defaultValue="-1" />
+    </fragment>
+
     <fragment
         android:id="@+id/crearListadoFragment"
         android:name="com.example.gestionproductos.ui.reportes.CrearListadoFragment"

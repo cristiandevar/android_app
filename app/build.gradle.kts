@@ -20,7 +20,7 @@ android {
         debug {
             // TODO: reemplazar por la IP local de tu PC (ipconfig -> IPv4).
             // Ver README para el paso a paso de por qué NO es 127.0.0.1.
-            buildConfigField("String", "BASE_URL", "\"http://192.168.0.155:8000/\"")
+            buildConfigField("String", "BASE_URL", "\"http://192.168.0.154:8000/\"")
         }
         release {
             isMinifyEnabled = false
@@ -71,6 +71,13 @@ dependencies {
 
     // Guardado seguro del token de sesión (JWT).
     implementation("androidx.security:security-crypto:1.1.0-alpha06")
+
+    // Escaneo de código de barra (Fase 0c): el "Code Scanner" de Google
+    // Play Services abre su propia UI de cámara lista para usar, sin
+    // pedir permiso de cámara en el manifest ni armar una vista previa
+    // a mano. Requiere Google Play Services en el dispositivo (la gran
+    // mayoría de los celulares Android lo tiene).
+    implementation("com.google.android.gms:play-services-code-scanner:16.1.0")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.2.1")

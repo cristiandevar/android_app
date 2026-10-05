@@ -58,6 +58,23 @@ interface ApiService {
     @DELETE("api/proveedores/{id}/")
     suspend fun eliminarProveedor(@Path("id") id: Int): Response<Unit>
 
+    // --- Formas de pago (NUEVO, Fase 0b) ---
+
+    @GET("api/formas-de-pago/")
+    suspend fun listarFormasDePago(@Query("search") search: String? = null): Response<List<FormaDePago>>
+
+    @GET("api/formas-de-pago/{id}/")
+    suspend fun obtenerFormaDePago(@Path("id") id: Int): Response<FormaDePago>
+
+    @POST("api/formas-de-pago/")
+    suspend fun crearFormaDePago(@Body formaDePago: FormaDePago): Response<FormaDePago>
+
+    @PUT("api/formas-de-pago/{id}/")
+    suspend fun actualizarFormaDePago(@Path("id") id: Int, @Body formaDePago: FormaDePago): Response<FormaDePago>
+
+    @DELETE("api/formas-de-pago/{id}/")
+    suspend fun eliminarFormaDePago(@Path("id") id: Int): Response<Unit>
+
     @GET("api/productos/")
     suspend fun listarProductos(
         @Query("categoria") categoria: Int? = null,
@@ -77,6 +94,12 @@ interface ApiService {
 
     @PUT("api/productos/{id}/")
     suspend fun actualizarProducto(@Path("id") id: Int, @Body producto: Producto): Response<Producto>
+
+    // NUEVO (Fase 0c): lo va a usar la pantalla de Venta (Fase 2) para
+    // traer el producto apenas se escanea su código. Ya queda la llamada
+    // lista, aunque todavía no hay pantalla que la use.
+    @GET("api/productos/buscar_por_codigo_barra/")
+    suspend fun buscarProductoPorCodigoBarra(@Query("codigo") codigo: String): Response<Producto>
 
     @POST("api/productos/actualizar_precios_masivo/")
     suspend fun actualizarPreciosMasivo(

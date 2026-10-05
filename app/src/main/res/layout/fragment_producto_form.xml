@@ -9,17 +9,43 @@
         android:orientation="vertical"
         android:padding="16dp">
 
-        <!--
-            El escaneo de código de barra va a agregar acá, más adelante, un
-            botón que dispara la cámara y autocompleta nombre/marca. Por
-            ahora la carga es 100% manual.
-        -->
-
         <EditText
             android:id="@+id/editNombre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hint_nombre" />
+
+        <!--
+            Código de barra: se puede escribir a mano o escanear con el
+            botón de al lado (usa el Code Scanner de Google Play Services,
+            no hace falta pedir permiso de cámara). Al escanear, solo se
+            completa este campo con el valor leído; no autocompleta
+            nombre/marca (eso implicaría integrar una base de datos externa
+            de códigos, fuera de alcance por ahora).
+        -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="16dp"
+            android:gravity="center_vertical">
+
+            <EditText
+                android:id="@+id/editCodigoBarra"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="@string/hint_codigo_barra"
+                android:inputType="text" />
+
+            <Button
+                android:id="@+id/botonEscanearCodigo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/boton_escanear_codigo" />
+
+        </LinearLayout>
 
         <TextView
             android:layout_width="wrap_content"

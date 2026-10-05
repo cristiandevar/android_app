@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.example.gestionproductos.R
 import com.example.gestionproductos.data.SessionManager
 import com.example.gestionproductos.data.model.Categoria
 import com.example.gestionproductos.data.model.Marca
@@ -18,11 +19,15 @@ import com.example.gestionproductos.data.network.RetrofitClient
 import com.example.gestionproductos.data.repository.ProductoRepository
 import com.example.gestionproductos.databinding.FragmentProductoFormBinding
 import com.example.gestionproductos.ui.common.ViewModelFactory
+import com.google.mlkit.vision.codescanner.GmsBarcodeScanning
 
 /**
- * Alta y edición de un producto. Por ahora la carga es 100% manual: el
- * botón de escaneo de código de barra (que autocompletaría nombre/marca)
- * queda para cuando retomemos ese tema, tal como se acordó.
+ * Alta y edición de un producto. El código de barra se puede escribir a
+ * mano o escanear (NUEVO, Fase 0c) con el "Code Scanner" de Google Play
+ * Services: abre su propia pantalla de cámara y solo devuelve el texto
+ * leído, que se vuelca en editCodigoBarra. No pide permiso de cámara en
+ * el manifest ni autocompleta nombre/marca (eso implicaría integrar una
+ * base de datos externa de códigos, fuera de alcance por ahora).
  */
 class ProductoFormFragment : Fragment() {
 
@@ -63,6 +68,21 @@ class ProductoFormFragment : Fragment() {
         }
 
         binding.botonGuardar.setOnClickListener { guardar() }
+        binding.botonEscanearCodigo.setOnClickListener { escanearCodigoBarra() }
+    }
+
+    private fun escanearCodigoBarra() {
+        val scanner = GmsBarcodeScanning.getClient(requireContext())
+        scanner.startScan()
+            .addOnSuccessListener { barcode ->
+                val valor = barcode.rawValue
+                if (!valor.isNullOrBlank()) {
+                    binding.editCodigoBarra.setText(valor)
+                }
+            }
+            .addOnFailureListener {
+                Toast.makeText(requireContext(), getString(R.string.mensaje_error_escaneo), Toast.LENGTH_SHORT).show()
+            }
     }
 
     private fun observarViewModel() {
@@ -105,6 +125,7 @@ class ProductoFormFragment : Fragment() {
 
     private fun precargarFormulario(producto: Producto) {
         binding.editNombre.setText(producto.nombre)
+        binding.editCodigoBarra.setText(producto.codigo_barra ?: "")
         binding.editPrecioUnitario.setText(producto.precio_unitario)
         binding.editPorcentajeGanancia.setText(producto.porcentaje_ganancia)
         binding.editCantidad.setText(producto.stock.toString())
@@ -118,6 +139,7 @@ class ProductoFormFragment : Fragment() {
 
     private fun guardar() {
         val nombre = binding.editNombre.text.toString().trim()
+        val codigoBarra = binding.editCodigoBarra.text.toString().trim()
         val precioUnitario = binding.editPrecioUnitario.text.toString().trim()
         val porcentajeGanancia = binding.editPorcentajeGanancia.text.toString().trim().ifEmpty { "0" }
         val cantidadTexto = binding.editCantidad.text.toString().trim().ifEmpty { "0" }
@@ -141,7 +163,8 @@ class ProductoFormFragment : Fragment() {
             proveedor = proveedorId,
             precio_unitario = precioUnitario,
             porcentaje_ganancia = porcentajeGanancia,
-            stock = cantidadTexto.toIntOrNull() ?: 0
+            stock = cantidadTexto.toIntOrNull() ?: 0,
+            codigo_barra = codigoBarra.ifEmpty { null }
         )
         viewModel.guardar(producto)
     }
