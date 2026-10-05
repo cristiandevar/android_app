@@ -1,0 +1,123 @@
+<resources>
+    <string name="app_name">Gestión de Productos</string>
+
+    <string name="hint_usuario">Usuario</string>
+    <string name="hint_clave">Contraseña</string>
+    <string name="boton_ingresar">Ingresar</string>
+    <string name="error_login">Usuario o contraseña incorrectos</string>
+
+    <string name="menu_productos">Productos</string>
+    <string name="menu_actualizacion_masiva">Actualización masiva de precios</string>
+    <string name="menu_cerrar_sesion">Cerrar sesión</string>
+
+    <string name="menu_administracion">Administración</string>
+    <string name="menu_operaciones">Operaciones</string>
+    <string name="menu_ordenes">Órdenes</string>
+    <string name="menu_generar_orden">Generar Orden</string>
+    <string name="menu_ventas">Ventas</string>
+    <string name="menu_registrar_venta">Registrar Venta</string>
+    <string name="menu_actualizar_precio">Actualizar Precio</string>
+    <string name="menu_escanear_listado">Escanear listado</string>
+    <string name="titulo_proximamente">Próximamente</string>
+    <string name="mensaje_proximamente_generico">Próximamente vas a poder usar esta función. Por ahora es solo una entrada del menú.</string>
+
+    <string name="titulo_nuevo_producto">Nuevo producto</string>
+    <string name="titulo_editar_producto">Editar producto</string>
+    <string name="hint_nombre">Nombre</string>
+    <string name="hint_precio_unitario">Precio unitario (costo)</string>
+    <string name="hint_porcentaje_ganancia">Porcentaje de ganancia</string>
+    <string name="hint_cantidad">Cantidad</string>
+    <string name="label_categoria">Categoría</string>
+    <string name="label_marca">Marca</string>
+    <string name="label_proveedor">Proveedor</string>
+    <string name="boton_guardar">Guardar</string>
+    <string name="fab_nuevo_producto">Nuevo producto</string>
+
+    <string name="titulo_actualizacion_masiva">Actualización masiva de precios</string>
+    <string name="label_campo_a_modificar">Campo a modificar</string>
+    <string name="label_tipo_operacion">Tipo de operación</string>
+    <string name="hint_valor">Valor</string>
+    <string name="boton_aplicar">Aplicar a los productos seleccionados</string>
+    <string name="mensaje_productos_actualizados">%1$d productos actualizados</string>
+    <string name="boton_buscar_productos">Buscar productos</string>
+    <string name="mensaje_sin_busqueda">Elegí filtros (opcional) y tocá \"Buscar productos\" para ver qué se va a actualizar</string>
+    <string name="mensaje_sin_resultados">No se encontraron productos con esos filtros</string>
+    <string name="mensaje_productos_encontrados">%1$d encontrados, %2$d seleccionados</string>
+
+    <string name="filtro_todas">Todas</string>
+    <string name="filtro_todos">Todos</string>
+
+    <string name="menu_marcas">Marcas</string>
+    <string name="menu_proveedores">Proveedores</string>
+    <string name="menu_categorias">Categorías</string>
+
+    <string name="hint_buscar_por_nombre">Buscar por nombre</string>
+    <string name="fab_agregar">Agregar</string>
+    <string name="boton_eliminar">Eliminar</string>
+    <string name="mensaje_sin_resultados_catalogo">No se encontraron resultados</string>
+
+    <string name="titulo_nueva_marca">Nueva marca</string>
+    <string name="titulo_editar_marca">Editar marca</string>
+    <string name="titulo_nueva_categoria">Nueva categoría</string>
+    <string name="titulo_editar_categoria">Editar categoría</string>
+    <string name="titulo_nuevo_proveedor">Nuevo proveedor</string>
+    <string name="titulo_editar_proveedor">Editar proveedor</string>
+
+    <string name="label_descripcion">Descripción</string>
+    <string name="label_contacto">Contacto</string>
+    <string name="label_email">Email</string>
+    <string name="label_telefono">Teléfono</string>
+
+    <string name="mensaje_confirmar_eliminar">¿Seguro que querés eliminar \"%1$s\"?</string>
+    <string name="mensaje_elemento_guardado">Guardado correctamente</string>
+    <string name="mensaje_elemento_eliminado">Eliminado correctamente</string>
+
+    <string name="menu_reportes">Reportes</string>
+    <string name="menu_crear_listados">Generar Listado</string>
+    <string name="menu_estadistica">Estadísticas</string>
+
+    <string name="titulo_crear_listado">Crear listado</string>
+    <string name="label_columnas">Columnas a incluir</string>
+    <string name="columna_precio_unitario">Precio unitario</string>
+    <string name="columna_porcentaje_ganancia">% Ganancia</string>
+    <string name="columna_precio_venta">Precio venta</string>
+    <string name="columna_stock">Stock</string>
+    <string name="formato_pdf">PDF</string>
+    <string name="formato_excel">Excel</string>
+    <string name="boton_generar_listado">Ver vista previa</string>
+    <string name="titulo_compartir_listado">Compartir listado</string>
+
+    <string name="titulo_vista_previa_reporte">Vista previa del reporte</string>
+    <string name="mensaje_resumen_vista_previa">%1$d productos incluidos</string>
+    <string name="boton_descargar_reporte">Descargar</string>
+    <string name="boton_compartir_reporte">Compartir</string>
+    <string name="titulo_elegir_formato">Elegí el formato</string>
+
+    <string name="titulo_estadistica">Estadística</string>
+    <string name="mensaje_estadistica_proximamente">Próximamente vas a poder ver acá estadísticas de ventas y compras.</string>
+
+    <string name="menu_inicio">Inicio</string>
+    <string name="titulo_inicio">Inicio</string>
+    <string name="mensaje_inicio_datos_ejemplo">Estos datos son de ejemplo. Vas a ver información real acá cuando el sistema empiece a registrar ventas y compras.</string>
+
+    <string name="titulo_mas_vendido">Producto más vendido</string>
+    <string name="dato_mas_vendido_nombre">Coca-Cola 2.25L</string>
+    <string name="dato_mas_vendido_detalle">128 unidades vendidas este mes</string>
+
+    <string name="titulo_menos_vendido">Producto menos vendido</string>
+    <string name="dato_menos_vendido_nombre">Detergente Ayudín 750ml</string>
+    <string name="dato_menos_vendido_detalle">3 unidades vendidas este mes</string>
+
+    <string name="titulo_mas_comprado">Más comprado a proveedores</string>
+    <string name="dato_mas_comprado_nombre">Fideos Matarazzo 500g</string>
+    <string name="dato_mas_comprado_detalle">300 unidades compradas este mes</string>
+
+    <string name="titulo_menos_comprado">Menos comprado a proveedores</string>
+    <string name="dato_menos_comprado_nombre">Café La Virginia 250g</string>
+    <string name="dato_menos_comprado_detalle">10 unidades compradas este mes</string>
+
+    <string name="titulo_stock_limite">Stock al límite</string>
+    <string name="dato_stock_limite_1">Detergente Ayudín 750ml — 2 unidades</string>
+    <string name="dato_stock_limite_2">Papel higiénico Higienol x4 — 1 unidad</string>
+    <string name="dato_stock_limite_3">Shampoo Sedal 340ml — 3 unidades</string>
+</resources>

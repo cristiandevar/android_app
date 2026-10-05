@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- "Inicio" es una entrada más del menú, no la pantalla de aterrizaje
+         real de la app (esa sigue siendo Productos, ver nav_graph.xml
+         startDestination). Por ahora muestra tarjetas de ejemplo. -->
+    <item
+        android:id="@+id/menuInicio"
+        android:title="@string/menu_inicio"
+        android:icon="@android:drawable/ic_menu_view" />
+
+    <!-- Los 3 grupos de acá abajo (Administración/Operaciones/Reportes) van
+         como una lista PLANA de ítems, sin <menu> anidado: NavigationView
+         oculta el título entero de un grupo anidado si ninguno de sus
+         ítems queda visible, así que anidarlos rompería el colapsado
+         (el título desaparecería junto con sus hijos). Con ítems planos,
+         el título del grupo (menuGrupoXxx, checkable="false", no navega a
+         ningún lado) se mantiene siempre visible y solo sus hijos se
+         muestran/ocultan al tocarlo (ver MainActivity, arrancan
+         colapsados).
+
+         Los ítems DENTRO de cada grupo no llevan ícono a propósito: se
+         probó sangrar el ícono junto con el texto, pero NavigationView
+         fuerza todo ícono a un cuadro fijo chico antes de dibujarlo, así
+         que un margen ahí lo hace desaparecer en vez de correrlo (ver
+         MainActivity). Para no complicar esto más, se optó por sacarles
+         el ícono a las opciones y dejar que la sangría del texto (ver
+         MainActivity) sea la única marca de que están "adentro" de un
+         grupo; solo el título del grupo conserva su ícono, para quedar
+         alineado con Inicio y Cerrar sesión. -->
+
+    <!-- Administración: datos maestros. Proveedores/Marcas/Categorías
+         además se ocultan si el usuario logueado no es Administrador;
+         Productos queda visible para cualquiera. El backend igual
+         rechaza la acción aunque alguien forzara la pantalla, así que la
+         seguridad real no depende de este menú. -->
+    <item
+        android:id="@+id/menuGrupoAdministracion"
+        android:title="@string/menu_administracion"
+        android:icon="@android:drawable/ic_menu_manage"
+        android:checkable="false" />
+
+    <item
+        android:id="@+id/menuProductos"
+        android:title="@string/menu_productos" />
+
+    <item
+        android:id="@+id/menuProveedores"
+        android:title="@string/menu_proveedores" />
+
+    <item
+        android:id="@+id/menuMarcas"
+        android:title="@string/menu_marcas" />
+
+    <item
+        android:id="@+id/menuCategorias"
+        android:title="@string/menu_categorias" />
+
+    <!-- Operaciones: Órdenes/Generar Orden/Ventas/Registrar Venta son
+         entradas nuevas de menú sin funcionalidad todavía (llevan a una
+         pantalla "próximamente") hasta que se definan sus reglas de
+         negocio (cómo afectan el stock, etc.). Actualizar Precio es la
+         Actualización masiva de precios ya existente, reubicada acá; ese
+         ítem se sigue ocultando en tiempo de ejecución si el usuario no
+         es Administrador, igual que antes. -->
+    <item
+        android:id="@+id/menuGrupoOperaciones"
+        android:title="@string/menu_operaciones"
+        android:icon="@android:drawable/ic_menu_recent_history"
+        android:checkable="false" />
+
+    <item
+        android:id="@+id/menuOrdenes"
+        android:title="@string/menu_ordenes" />
+
+    <item
+        android:id="@+id/menuGenerarOrden"
+        android:title="@string/menu_generar_orden" />
+
+    <item
+        android:id="@+id/menuVentas"
+        android:title="@string/menu_ventas" />
+
+    <item
+        android:id="@+id/menuRegistrarVenta"
+        android:title="@string/menu_registrar_venta" />
+
+    <item
+        android:id="@+id/menuActualizacionMasiva"
+        android:title="@string/menu_actualizar_precio" />
+
+    <!-- Reportes: disponible para cualquier usuario logueado, no solo
+         Administrador (el backend de generar_listado también lo permite
+         para Operador). Escanear listado es una entrada nueva sin
+         funcionalidad todavía (lleva a una pantalla "próximamente"). -->
+    <item
+        android:id="@+id/menuGrupoReportes"
+        android:title="@string/menu_reportes"
+        android:icon="@android:drawable/ic_menu_report_image"
+        android:checkable="false" />
+
+    <item
+        android:id="@+id/menuCrearListados"
+        android:title="@string/menu_crear_listados" />
+
+    <item
+        android:id="@+id/menuEstadistica"
+        android:title="@string/menu_estadistica" />
+
+    <item
+        android:id="@+id/menuEscanearListado"
+        android:title="@string/menu_escanear_listado" />
+
+    <item
+        android:id="@+id/menuCerrarSesion"
+        android:title="@string/menu_cerrar_sesion"
+        android:icon="@android:drawable/ic_lock_power_off" />
+
+</menu>

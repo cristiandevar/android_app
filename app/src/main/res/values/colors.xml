@@ -1,0 +1,7 @@
+<resources>
+    <color name="primario">#1565C0</color>
+    <color name="primario_oscuro">#0D47A1</color>
+    <color name="acento">#FF6F00</color>
+    <color name="fondo">#FFFFFF</color>
+    <color name="texto_principal">#1B1B1B</color>
+</resources>

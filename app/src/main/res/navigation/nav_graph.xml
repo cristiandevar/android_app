@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/productoListFragment">
+
+    <fragment
+        android:id="@+id/inicioFragment"
+        android:name="com.example.gestionproductos.ui.inicio.InicioFragment"
+        android:label="@string/titulo_inicio"
+        tools:layout="@layout/fragment_inicio" />
+
+    <fragment
+        android:id="@+id/productoListFragment"
+        android:name="com.example.gestionproductos.ui.productos.ProductoListFragment"
+        android:label="@string/menu_productos"
+        tools:layout="@layout/fragment_producto_list">
+        <action
+            android:id="@+id/accionAProductoForm"
+            app:destination="@id/productoFormFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/productoFormFragment"
+        android:name="com.example.gestionproductos.ui.productos.ProductoFormFragment"
+        android:label="@string/titulo_nuevo_producto"
+        tools:layout="@layout/fragment_producto_form">
+        <argument
+            android:name="productoId"
+            app:argType="integer"
+            android:defaultValue="-1" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/actualizacionMasivaFragment"
+        android:name="com.example.gestionproductos.ui.precios.ActualizacionMasivaFragment"
+        android:label="@string/titulo_actualizacion_masiva"
+        tools:layout="@layout/fragment_actualizacion_masiva" />
+
+    <fragment
+        android:id="@+id/categoriaListFragment"
+        android:name="com.example.gestionproductos.ui.categorias.CategoriaListFragment"
+        android:label="@string/menu_categorias"
+        tools:layout="@layout/fragment_catalogo_lista">
+        <action
+            android:id="@+id/accionACategoriaForm"
+            app:destination="@id/categoriaFormFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/categoriaFormFragment"
+        android:name="com.example.gestionproductos.ui.categorias.CategoriaFormFragment"
+        android:label="@string/titulo_nueva_categoria"
+        tools:layout="@layout/fragment_categoria_form">
+        <argument
+            android:name="categoriaId"
+            app:argType="integer"
+            android:defaultValue="-1" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/marcaListFragment"
+        android:name="com.example.gestionproductos.ui.marcas.MarcaListFragment"
+        android:label="@string/menu_marcas"
+        tools:layout="@layout/fragment_catalogo_lista">
+        <action
+            android:id="@+id/accionAMarcaForm"
+            app:destination="@id/marcaFormFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/marcaFormFragment"
+        android:name="com.example.gestionproductos.ui.marcas.MarcaFormFragment"
+        android:label="@string/titulo_nueva_marca"
+        tools:layout="@layout/fragment_marca_form">
+        <argument
+            android:name="marcaId"
+            app:argType="integer"
+            android:defaultValue="-1" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/proveedorListFragment"
+        android:name="com.example.gestionproductos.ui.proveedores.ProveedorListFragment"
+        android:label="@string/menu_proveedores"
+        tools:layout="@layout/fragment_catalogo_lista">
+        <action
+            android:id="@+id/accionAProveedorForm"
+            app:destination="@id/proveedorFormFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/proveedorFormFragment"
+        android:name="com.example.gestionproductos.ui.proveedores.ProveedorFormFragment"
+        android:label="@string/titulo_nuevo_proveedor"
+        tools:layout="@layout/fragment_proveedor_form">
+        <argument
+            android:name="proveedorId"
+            app:argType="integer"
+            android:defaultValue="-1" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/crearListadoFragment"
+        android:name="com.example.gestionproductos.ui.reportes.CrearListadoFragment"
+        android:label="@string/titulo_crear_listado"
+        tools:layout="@layout/fragment_crear_listado">
+        <action
+            android:id="@+id/accionAVistaPreviaReporte"
+            app:destination="@id/vistaPreviaReporteFragment" />
+    </fragment>
+
+    <!-- Solo se llega acá vía accionAVistaPreviaReporte, desde
+         CrearListadoFragment: no tiene entrada propia en el menú
+         lateral ni ninguna otra forma de navegación. -->
+    <fragment
+        android:id="@+id/vistaPreviaReporteFragment"
+        android:name="com.example.gestionproductos.ui.reportes.VistaPreviaReporteFragment"
+        android:label="@string/titulo_vista_previa_reporte"
+        tools:layout="@layout/fragment_vista_previa_reporte" />
+
+    <fragment
+        android:id="@+id/estadisticaFragment"
+        android:name="com.example.gestionproductos.ui.reportes.EstadisticaFragment"
+        android:label="@string/titulo_estadistica"
+        tools:layout="@layout/fragment_estadistica" />
+
+    <!-- Destino compartido por las entradas del menú "Operaciones" y
+         "Escanear listado" que todavía no tienen pantalla propia (ver
+         ProximamenteFragment). El título mostrado se pasa como argumento
+         al navegar, no hace falta un destino por cada ítem. -->
+    <fragment
+        android:id="@+id/proximamenteFragment"
+        android:name="com.example.gestionproductos.ui.common.ProximamenteFragment"
+        android:label="@string/titulo_proximamente"
+        tools:layout="@layout/fragment_proximamente">
+        <argument
+            android:name="titulo"
+            app:argType="string"
+            android:defaultValue="" />
+    </fragment>
+
+</navigation>

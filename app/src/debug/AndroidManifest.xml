@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Este manifest SOLO se aplica al build de "debug" (Android Studio lo
+  combina automáticamente con el principal). Habilita tráfico HTTP sin
+  cifrar, necesario porque en desarrollo el backend corre en tu red local
+  con http:// en vez de https://. El build de "release" NO incluye esto,
+  así que en producción sigue exigiéndose HTTPS.
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <application android:usesCleartextTraffic="true" />
+</manifest>

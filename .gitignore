@@ -1,0 +1,30 @@
+# Compilados
+*.apk
+*.aab
+*.ap_
+*.dex
+
+# Archivos y carpetas generados por Gradle / Android Studio
+build/
+.gradle/
+captures/
+.cxx/
+.externalNativeBuild/
+
+# Configuración local de tu máquina (ruta de tu SDK de Android): es
+# específica de cada compu, nunca se sube.
+local.properties
+
+# Configuración del IDE
+.idea/
+
+# Firma de la app: si en algún momento generás un keystore para firmar
+# una versión release, esa clave nunca se versiona.
+*.jks
+*.keystore
+
+# Credenciales de Firebase, por si en algún momento se agrega
+google-services.json
+
+# Otros
+.DS_Store
